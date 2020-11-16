@@ -7,7 +7,6 @@ const FILES_TO_CACHE = [
     '/index.html',
     '/assets/bueno_muerto.png',
     '/assets/bueno.png',
-    '/assets/clases.png',
     '/assets/game_over.png',
     '/assets/jefe_muerto.png',
     '/assets/jefe.png',
