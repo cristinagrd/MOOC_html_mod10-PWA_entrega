@@ -4,9 +4,11 @@ let deferredInstallPrompt = null;
 const installButton = document.getElementById('butInstall');
 installButton.addEventListener('click', installPWA);
 
-window.addEventListener('load', saveBeforeInstallPromptEvent);
+window.addEventListener('beforeinstallprompt', saveBeforeInstallPromptEvent);
 
 function saveBeforeInstallPromptEvent (evt) {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    evt.preventDefault();
     console.log('saveBeforeInstallPromptEvent');
     deferredInstallPrompt = evt;
     installButton.removeAttribute('hidden');
