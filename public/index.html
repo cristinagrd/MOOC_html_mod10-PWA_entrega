@@ -2,6 +2,15 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <meta name="description" content="Una aplicación de peliculas">
+  <meta name="theme-color" content="#6200ee">
+  <meta name="apple-mobile-web-app-title" content="Pelis">
+  <meta name="apple-mofle-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="assets/screenshot.png">
+  
+
   <title>Shooter Game</title>
   <link type="text/css" rel="stylesheet" href="game.css">
   <meta name="viewport" content="user-scalable=0"/>
@@ -17,6 +26,17 @@
 <body>
   <button id="pause" class="gamebutton" onclick="this.blur();">Pausa</button>
   <button id="reset" class="gamebutton" onclick="this.blur();">NUEVA PARTIDA</button>
+  <button id="butInstall" aria-label = "Install" hidden>INSTALAR APP SHOOTER...</button>  
+  <script>
+    if ('serviceWorker' in navigator){
+      window.addEventListener('load', ()=> {
+        navigator.serviceWorker.register('service-worker.js').then((reg) =>{ 
+          console.log('Service worker registered:', reg);
+        })
+      })
+    }
+  </script>
+  <script src = "assets/install.js" ></script>
 </body>
 
-</html>
+</html> 
